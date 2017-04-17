@@ -1,0 +1,10 @@
+.text-small {
+    opacity: 0.85;
+    font-size: 1.2rem;
+    color:#46b8da;
+  }
+    .text-small:hover {
+      opacity: 1;
+      color: #269abc;
+      text-decoration: none;
+    }
