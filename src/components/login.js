@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import axiox from 'axios';
 
 class Login extends Component {
@@ -13,7 +14,7 @@ class Login extends Component {
     render(){
         return (
         <div className="container">
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <div className="row">
                     <div className="form-group col-xs-5">
                         <label>Username</label>
@@ -38,7 +39,7 @@ class Login extends Component {
                         <a href="#" className="text-small">New? <b>Sign up</b></a>
                     </div>
                 </div>
-                <button className="btn btn-info" type="submit">Login</button>
+                <button className="btn btn-info" onClick={this.handleSubmit}>Login</button>
             </form>
 
         </div>
@@ -53,6 +54,7 @@ class Login extends Component {
         }).then( res =>{
             console.log(res)
         });
+        window.location.href = "hello";
     }
 
     onInputChange(user){

@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <div>
         <Navbar />
-        <Login />
+       {this.props.children}
       </div>
     );
   }
