@@ -19,9 +19,9 @@ class Login extends Component {
                     <div className="form-group col-xs-5">
                         <label>Username</label>
                         <input className="form-control"
-                        val={this.state.user}
+                        value={this.state.user}
                         onChange= { event => this.onInputChange(event.target.value)}
-                         type="text" 
+                         type="email" 
                          placeholder="Enter Username" 
                          required/>
                     </div>
@@ -31,12 +31,12 @@ class Login extends Component {
                     <div className="form-group col-xs-5">
                         <label>Password</label>
                         <input className="form-control"
-                         val={this.state.pass}
+                         value={this.state.pass}
                          onChange= {event => this.onPassChange(event.target.value)}
                          type="password"
                          placeholder="Enter Password" 
                          required/>
-                        <a href="#" className="text-small">New? <b>Sign up</b></a>
+                        <Link to="/signup" className="text-small">New? <b>Sign up</b></Link>
                     </div>
                 </div>
                 <button className="btn btn-info" onClick={this.handleSubmit}>Login</button>
@@ -48,23 +48,27 @@ class Login extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axiox.post('http://localhost:3000/users', {
+        axiox.post('http://localhost:3000/users/login', {
             email: this.state.user,
             password: this.state.pass
         }).then( res =>{
+            switch(res.status){
+                case 200:
+                window.location.href = 'hello';
+
+            }
             console.log(res)
+            
         });
-        window.location.href = "hello";
+        
     }
 
     onInputChange(user){
         this.setState({user});
-        console.log(this.state.user)
     }
 
     onPassChange(pass){
         this.setState({pass});
-        console.log(this.state.pass);
     }
 };
 
